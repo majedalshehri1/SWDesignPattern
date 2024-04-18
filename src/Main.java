@@ -7,6 +7,7 @@ public class Main {
         Order order = new Order(customer);
         order.addBook(book);
 
+        //test commit
         SalesManager salesManager = new SalesManager();
         salesManager.processOrder(order);
 
