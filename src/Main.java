@@ -10,7 +10,7 @@ public class Main {
         //test commit
         SalesManager salesManager = new SalesManager();
         salesManager.processOrder(order);
-
+//test comment 2
         // Using Singleton pattern
         InventoryManager inventoryManager = InventoryManager.getInstance();
         inventoryManager.addBook(book);
