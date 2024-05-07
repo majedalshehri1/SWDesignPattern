@@ -2,19 +2,21 @@ import java.util.*;
 
 public class Order {
     private Customer customer;
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
     private double totalPrice;
 
     public Order(Customer customer) {
         this.customer = customer;
-        this.books = new ArrayList<>();
-        this.totalPrice = 0.0;
     }
 
     public void addBook(Book book) {
         books.add(book);
         totalPrice += book.getPrice();
     }
+    public void processPayment(Payment payment) {
+        payment.processPayment(totalPrice);
+    }
+
 
     // Getters and setters
     public Customer getCustomer() {

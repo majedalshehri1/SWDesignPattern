@@ -7,8 +7,9 @@ public class SalesManager {
         this.orders = new ArrayList<>();
     }
 
-    public void processOrder(Order order) {
+    public void processOrder(Order order, Payment payment ) {
         orders.add(order);
+        order.processPayment(payment);
     }
 
     // Getters and setters
