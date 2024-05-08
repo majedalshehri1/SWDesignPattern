@@ -5,9 +5,16 @@ public class Main {
 
         // Using Factory pattern
         Book book = BookFactory.createBook("Harry Potter", author, 29.99);
+
+        // Using Decorator pattern
+        GiftWrappedBook giftWrappedBook = new GiftWrappedBook(book);
+
         Customer customer = new Customer("Majed", "2344565431");
         Order order = new Order(customer);
-        order.addBook(book);
+
+        // Using Decorator pattern
+        order.addBook(giftWrappedBook);
+
 
 
         SalesManager salesManager = new SalesManager();
@@ -21,9 +28,11 @@ public class Main {
         InventoryManager inventoryManager = InventoryManager.getInstance();
         inventoryManager.addBook(book);
 
-        System.out.println("Book ordered: " + order.getBooks().get(0).getTitle());
-        System.out.println("Total price: " + order.getTotalPrice());
+        System.out.println("Book ordered: " + giftWrappedBook.getTitle() + ", Price: " + giftWrappedBook.getPrice());
+
         System.out.println("Buyer: " + customer.getName());
+        System.out.println("Order processed with total due: $" + order.getTotalPrice());
+
 
     }
 }
