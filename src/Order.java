@@ -4,15 +4,23 @@ public class Order {
     private Customer customer;
     private List<Book> books = new ArrayList<>();
     private double totalPrice;
+    private PricingStrategy pricingStrategy;
+
 
     public Order(Customer customer) {
         this.customer = customer;
+        this.pricingStrategy = new RegularPriceStrategy();
     }
 
     public void addBook(Book book) {
         books.add(book);
         totalPrice += book.getPrice();
     }
+
+    public void setPricingStrategy(PricingStrategy strategy) {
+        this.pricingStrategy = strategy;
+    }
+
     public void processPayment(Payment payment) {
         payment.processPayment(totalPrice);
     }
@@ -42,4 +50,5 @@ public class Order {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
 }
