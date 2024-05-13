@@ -14,11 +14,15 @@ public class Order {
 
     public void addBook(Book book) {
         books.add(book);
-        totalPrice += book.getPrice();
+        totalPrice += pricingStrategy.calculatePrice(book);
     }
 
     public void setPricingStrategy(PricingStrategy strategy) {
         this.pricingStrategy = strategy;
+    }
+
+    public PricingStrategy getPricingStrategy() {
+        return pricingStrategy;
     }
 
     public void processPayment(Payment payment) {
