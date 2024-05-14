@@ -26,7 +26,7 @@ public class Main {
         order.addBook(giftWrappedBook);
 
         // Print the price of the gift-wrapped book, including the discount
-        double priceAfterDiscount = order.getPricingStrategy().calculatePrice(giftWrappedBook);
+        double priceAfterDiscount = order.executePricingStrategy(giftWrappedBook);
         System.out.println("Price of gift-wrapped new release '" + newReleaseBook.getTitle() + "' after 10% discount: $" + priceAfterDiscount);
 
         // Singleton and Observer patterns

@@ -21,8 +21,9 @@ public class Order {
         this.pricingStrategy = strategy;
     }
 
-    public PricingStrategy getPricingStrategy() {
-        return pricingStrategy;
+
+        public double executePricingStrategy (Book book) {
+            return pricingStrategy.calculatePrice(book);
     }
 
     public void processPayment(Payment payment) {
